@@ -12,4 +12,4 @@ docker images
 
 # Step 3: 
 # Run flask app
-docker run -p 81:81 udapeopledevops
+docker run -p 8000:80 udapeopledevops
