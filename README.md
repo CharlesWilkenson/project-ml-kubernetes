@@ -1,5 +1,5 @@
 ## Build Status:
-[![<CircleCI>](https://app.circleci.com/pipelines/github/CharlesWilkenson/project-ml-kubernetes.svg?style=svg)](https://github.com/CharlesWilkenson/project-ml-kubernetes)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/CharlesWilkenson/project-ml-kubernetes/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/CharlesWilkenson/project-ml-kubernetes/tree/main)
 ## Project Overview
 
 In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
