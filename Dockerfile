@@ -5,7 +5,7 @@ WORKDIR /app
 COPY app.py model_data/boston_housing_prediction.joblib requirements.txt /app/
 
 RUN pip install --upgrade pip &&\
-    pip install --trusted-host pypi.python.org -r requirements.txt
+    pip install -r requirements.txt
 
 EXPOSE 80
 
