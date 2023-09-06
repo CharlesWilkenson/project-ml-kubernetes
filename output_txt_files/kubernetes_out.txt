@@ -1,1 +1,66 @@
-<paste log output from Kubernetes-mediated prediction, here>
+*****************Deploy a pod on docker************************
+
+charles@charles-G5-5500:~/Documents/AWS/project-ml-kubernetes$ ./run_kubernetes.sh 
+Error from server (AlreadyExists): pods "udapeopledevops" already exists
+NAME              READY   STATUS    RESTARTS        AGE
+udapeopledevops   1/1     Running   2 (6h56m ago)   17h
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+
+
+*****************Making a prediction************************
+
+charles@charles-G5-5500:~/Documents/AWS/project-ml-kubernetes$ ./make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+
+*****************logs on a pod************************
+
+charles@charles-G5-5500:~/Documents/AWS/project-ml-kubernetes$ kubectl logs udapeopledevops
+/app
+['requirements.txt', 'app.py', 'boston_housing_prediction.joblib']
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 122-561-187
+127.0.0.1 - - [06/Sep/2023 08:49:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:49:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:50:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:50:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:50:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:50:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:50:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2023 08:50:07] "GET / HTTP/1.1" 200 -
+[2023-09-06 08:50:37,741] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2023-09-06 08:50:37,794] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-09-06 08:50:37,833] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2023-09-06 08:50:37,846] INFO in app: predict.prediction: 
+[20.35373177134412]
+127.0.0.1 - - [06/Sep/2023 08:50:37] "POST /predict HTTP/1.1" 200 -

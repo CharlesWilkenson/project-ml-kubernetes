@@ -23,6 +23,38 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ---
 
+## Explanation of the files in the repository.
+
+DIrectory                File                                    Description
+________________________________________________________________________________________________________________________________________________
+
+.circleci                config.yml                              this is the circleci configuration file
+_________________________________________________________________________________________________________________________________________________
+model_data               boston_housing_prediction.joblib        Trained model data for housing price in Boston                                   
+_________________________________________________________________________________________________________________________________________________
+model_data               housing.csv                             The dataset
+_________________________________________________________________________________________________________________________________________________
+output_txt               docker_out.txt && kubernetes_out.txt     Docker and kubernetes logs output
+_________________________________________________________________________________________________________________________________________________
+                         app.py                                   Entry point containing codes for REST handling request/ endpoint 
+                                                                  making house price prediction
+__________________________________________________________________________________________________________________________________________________
+                         Dockerfile                               File containing commands to build image
+__________________________________________________________________________________________________________________________________________________
+                         make_prediction.sh                       File containing Script for simulation api calls that make prediction
+__________________________________________________________________________________________________________________________________________________
+                         Makefile                                 The project build file
+_______________________________________________________________________________________________________________________________________________
+                         requirements.txt                         File containing python dependencies (librairies)
+________________________________________________________________________________________________________________________________________________
+                         run_docker.sh                            File containing Script for building/listing images and running container
+___________________________________________________________________________________________________________________________________________________
+                         run_kubernetes.sh                        File containing Script for creating cluster, deploy docker container, list pods,
+                                                                  Forward the container port to a host                    
+___________________________________________________________________________________________________________________________________________________
+                        upload_docker.sh                          File containing Script for loading docker images to docker hub repos
+___________________________________________________________________________________________________________________________________________________
+
 ## Setup the Environment
 
 * Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
